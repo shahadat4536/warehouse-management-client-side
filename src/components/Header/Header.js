@@ -14,7 +14,7 @@ const Header = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
       <div className="container-fluid">
         <Link as={Link} className="navbar-brand" to="/home">
-          Navbar
+          Buraq Bike Warehouse
         </Link>
         <button
           className="navbar-toggler"
@@ -29,51 +29,32 @@ const Header = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <Link to="login" className="nav-link active" aria-current="page">
-                Login
-              </Link>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Link
-              </a>
-            </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </li>
-              </ul>
-            </li>
             {user ? (
               <li className="nav-item">
-                <Link to="/signin" className="nav-link">
+                <Link
+                  to="manageitems"
+                  className="nav-link text-dark"
+                  aria-current="page"
+                >
+                  Manage Items
+                </Link>
+              </li>
+            ) : (
+              ""
+            )}
+            {user ? (
+              <li className="nav-item">
+                <Link to="/additems" className="nav-link text-dark" href="#">
+                  Add Items
+                </Link>
+              </li>
+            ) : (
+              ""
+            )}
+
+            {user ? (
+              <li className="nav-item text-dark">
+                <Link to="/myitems" className="nav-link text-dark">
                   My Items
                 </Link>
               </li>
@@ -83,7 +64,12 @@ const Header = () => {
           </ul>
           <form className="d-flex">
             {user ? (
-              <button onClick={handleSignOut}>Sign Out</button>
+              <button
+                className="btn btn-info text-white"
+                onClick={handleSignOut}
+              >
+                Sign Out
+              </button>
             ) : (
               <button className="btn btn-info">
                 <Link className="text-decoration-none text-white" to="/signin">

@@ -1,9 +1,11 @@
 import React from "react";
+import Footer from "../Footer/Footer";
+import HomeSectionItems from "../HomeSectionItems/HomeSectionItems";
 
 const Home = () => {
   return (
     <div>
-      <h2>Buraq Bike Warehouse</h2>
+      <Footer></Footer>
     </div>
   );
 };

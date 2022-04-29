@@ -5,6 +5,9 @@ import Header from "./components/Header/Header";
 import SignIn from "./components/SignIn/SignIn";
 import SignUp from "./components/SignUp/SignUp";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
+import ManageItems from "./components/ManageItems/ManageItems";
+import AddItems from "./components/AddItems/AddItems";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -19,6 +22,12 @@ function App() {
           path="/forgetpassword"
           element={<ForgotPassword></ForgotPassword>}
         ></Route>
+        <Route
+          path="/manageitems"
+          element={<ManageItems></ManageItems>}
+        ></Route>
+        <Route path="/additems" element={<AddItems></AddItems>}></Route>
+        <Route path="/myitems" element={<AddItems></AddItems>}></Route>
       </Routes>
     </div>
   );

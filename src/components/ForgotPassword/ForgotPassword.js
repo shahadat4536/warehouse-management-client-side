@@ -17,7 +17,10 @@ const ForgotPassword = () => {
   const navigate = useNavigate();
 
   const [resetError, setResetError] = useState();
+  let errorElement;
+  //   if (error) {
 
+  //     }
   //   if (sending) {
   //     navigate("/signin");
   //   }
@@ -27,7 +30,8 @@ const ForgotPassword = () => {
     const email = event.target.email.value;
     sendPasswordResetEmail(email);
     event.target.reset();
-    toast("Email NotFound");
+    toast("Send Email");
+
     // if (error) {
     //   toast("Send Email");
     // }
