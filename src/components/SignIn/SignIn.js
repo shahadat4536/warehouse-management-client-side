@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { Link, useNavigate } from "react-router-dom";
+import auth from "../../firebase.init";
 import SocialSignIn from "../SocialSignIn/SocialSignIn";
 import "./SignIn.css";
 const SignIn = () => {
+  const navigate = useNavigate();
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+
+  const handleSignIn = (event) => {
+    event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    signInWithEmailAndPassword(email, password);
+  };
+
+  if (user) {
+    navigate("/home");
+  }
+  console.log(error);
   return (
     <div
-      className="px-3 py-3 container shadow-lg rounded-3 auth"
+      className="px-3 py-3 mt-5 container shadow-lg rounded-3 auth"
       width={"350px"}
     >
       <div className="mt-5 mb-5">
@@ -15,10 +32,10 @@ const SignIn = () => {
       </div>
 
       <div>
-        <Form>
+        <Form onSubmit={handleSignIn}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" />
+            <Form.Control name="email" type="email" />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -28,7 +45,7 @@ const SignIn = () => {
                 Forget Password
               </Link>
             </Form.Label>
-            <Form.Control type="password" />
+            <Form.Control name="password" type="password" />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="Check me out" />

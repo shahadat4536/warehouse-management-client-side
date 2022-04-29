@@ -11,7 +11,7 @@ const SignUp = () => {
   // const [confirmPassword, setConfirmPassword] = useState(" ");
 
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
   // const handleEmail = (event) => {
   //   const email = event.target.email.value;
