@@ -1,14 +1,14 @@
-// import { useEffect, useState } from "react";
-// import data from "../../public/data.json";
-// const useItems = () => {
-//   const [items, setItems] = useState([]);
-//   useEffect(() => {
-//     const url = `data.json`;
-//     fetch(url)
-//       .then((res) => res.json())
-//       .then((data) => setItems(data));
-//   }, []);
-//   return [items, setItems];
-// };
+import { useEffect, useState } from "react";
 
-// export default useItems;
+const useItems = () => {
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    const url = `http://localhost:5000/items`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setItems(data));
+  }, []);
+  return [items, setItems];
+};
+
+export default useItems;

@@ -8,10 +8,11 @@ import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import ManageItems from "./components/ManageItems/ManageItems";
 import AddItems from "./components/AddItems/AddItems";
 import Footer from "./components/Footer/Footer";
+import Update from "./components/Update/Update";
 
 function App() {
   return (
-    <div className="App">
+    <div className="mb-5">
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
@@ -28,6 +29,7 @@ function App() {
         ></Route>
         <Route path="/additems" element={<AddItems></AddItems>}></Route>
         <Route path="/myitems" element={<AddItems></AddItems>}></Route>
+        <Route path="/inventory/:id" element={<Update></Update>}></Route>
       </Routes>
     </div>
   );
