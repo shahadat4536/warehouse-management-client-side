@@ -3,8 +3,15 @@ import { Button, Card, CardGroup, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const HomeSectionItemsData = ({ item }) => {
-  const { productName, description, supplierName, quantity, price, image } =
-    item;
+  const {
+    productName,
+    description,
+    supplierName,
+    quantity,
+    price,
+    image,
+    _id,
+  } = item;
   return (
     <div className="col ">
       <div className="card h-100">
@@ -35,7 +42,10 @@ const HomeSectionItemsData = ({ item }) => {
             </tbody>
           </table>
           <button className="btn btn-info mx-auto w-100">
-            <Link className="text-decoration-none text-white" to="/:id">
+            <Link
+              className="text-decoration-none text-white"
+              to={`/update/${_id}`}
+            >
               Update
             </Link>
           </button>

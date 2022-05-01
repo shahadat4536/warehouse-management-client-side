@@ -1,17 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import useItems from "../../hook/useItems";
 
-const ManageItemsData = ({ item }) => {
-  const { productName, description, supplierName, quantity, price, image } =
-    item;
+const ManageItemsData = ({ item, handleDelete }) => {
+  const {
+    productName,
+    description,
+    supplierName,
+    quantity,
+    price,
+    image,
+    _id,
+  } = item;
   return (
-    <tbody>
-      <tr>
-        <td>{productName}</td>
-        <td>{supplierName}</td>
-        <td>{quantity}</td>
-        <td>{price}</td>
-      </tr>
-    </tbody>
+    <div>
+      <h2 className="text-center">
+        {productName}
+        <Link to={`/update/${_id}`}>Update</Link>
+        <button onClick={() => handleDelete(_id)}>X</button>
+      </h2>
+    </div>
   );
 };
 

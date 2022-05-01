@@ -7,8 +7,9 @@ import SignUp from "./components/SignUp/SignUp";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import ManageItems from "./components/ManageItems/ManageItems";
 import AddItems from "./components/AddItems/AddItems";
-import Footer from "./components/Footer/Footer";
+
 import Update from "./components/Update/Update";
+import RequireAuth from "./components/RequireAuth/RequireAuth";
 
 function App() {
   return (
@@ -25,11 +26,36 @@ function App() {
         ></Route>
         <Route
           path="/manageitems"
-          element={<ManageItems></ManageItems>}
+          element={
+            <RequireAuth>
+              <ManageItems></ManageItems>
+            </RequireAuth>
+          }
         ></Route>
-        <Route path="/additems" element={<AddItems></AddItems>}></Route>
-        <Route path="/myitems" element={<AddItems></AddItems>}></Route>
-        <Route path="/inventory/:id" element={<Update></Update>}></Route>
+        <Route
+          path="/additems"
+          element={
+            <RequireAuth>
+              <AddItems></AddItems>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/myitems"
+          element={
+            <RequireAuth>
+              <AddItems></AddItems>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/update/:id"
+          element={
+            <RequireAuth>
+              <Update></Update>
+            </RequireAuth>
+          }
+        ></Route>
       </Routes>
     </div>
   );

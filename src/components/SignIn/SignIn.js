@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { Link, useNavigate } from "react-router-dom";
+import {
+  useAuthState,
+  useSignInWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import SocialSignIn from "../SocialSignIn/SocialSignIn";
 import "./SignIn.css";
 const SignIn = () => {
   const navigate = useNavigate();
+
+  let location = useLocation();
+  // const [user] = useAuthState(auth);
+
+  let from = location.state?.from?.pathname || "/";
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
@@ -18,7 +26,7 @@ const SignIn = () => {
   };
 
   if (user) {
-    navigate("/home");
+    navigate(from, { replace: true });
   }
   console.log(error);
   return (
