@@ -9,18 +9,17 @@ const Update = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setItem(data));
-  }, []);
+  }, [item]);
 
   const handleQuantity = (event) => {
     event.preventDefault();
     const quantity = event.target.quantity.value;
+    const updateQuantity = { quantity };
     console.log(quantity);
     const url = `http://localhost:5000/item/${id}`;
     fetch(url, {
       method: "PUT",
-      body: JSON.stringify({
-        quantity,
-      }),
+      body: JSON.stringify(updateQuantity),
       headers: {
         "Content-type": "application/json",
       },
@@ -31,7 +30,7 @@ const Update = () => {
       });
   };
   return (
-    <div className="row row-cols-1 row-cols-md-3 g-5 container mx-auto">
+    <div className="row row-cols-1 row-cols-md-3 g-5 container mx-auto w-100 d-flex justify-content-center align-items-center">
       <div className="col ">
         <div className="card h-100">
           <img src={item.image} className="card-img-top" alt="..." />
@@ -61,21 +60,13 @@ const Update = () => {
               </tbody>
             </table>
             <form onSubmit={handleQuantity}>
+              <input className="mx-auto w-100" type="number" name="quantity" />
               <input
-                type="number"
-                name="quantity"
-                placeholder="Update quantity"
+                className="btn btn-info mx-auto w-100 text-decoration-none text-white mt-2"
+                type="submit"
+                value="Update quantity"
               />
-              <input type="submit" value="Update" />
             </form>
-            <button className="btn btn-info mx-auto w-100">
-              <Link
-                className="text-decoration-none text-white"
-                to={`/update/${item._id}`}
-              >
-                Update
-              </Link>
-            </button>
           </div>
         </div>
       </div>
