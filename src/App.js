@@ -10,6 +10,7 @@ import AddItems from "./components/AddItems/AddItems";
 
 import Update from "./components/Update/Update";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
             </RequireAuth>
           }
         ></Route>
+        <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
     </div>
   );
