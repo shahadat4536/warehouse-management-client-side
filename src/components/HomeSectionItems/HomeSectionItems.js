@@ -8,7 +8,7 @@ const HomeSectionItems = () => {
   return (
     <div className="row row-cols-1 row-cols-md-3 g-5 container mx-auto ">
       {items.slice(0, 6).map((item) => (
-        <HomeSectionItemsData item={item}></HomeSectionItemsData>
+        <HomeSectionItemsData key={item._id} item={item}></HomeSectionItemsData>
       ))}
     </div>
   );
