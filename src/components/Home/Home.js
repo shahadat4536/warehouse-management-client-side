@@ -5,7 +5,7 @@ import HomeSectionItems from "../HomeSectionItems/HomeSectionItems";
 
 const Home = () => {
   return (
-    <div>
+    <div className="">
       <Banner></Banner>
       <HomeSectionItems></HomeSectionItems>
       <Footer></Footer>

@@ -6,7 +6,7 @@ const HomeSectionItems = () => {
   const [items] = useItems([]);
   console.log(items);
   return (
-    <div className="row row-cols-1 row-cols-md-3 g-5 container mx-auto ">
+    <div className="row row-cols-1 row-cols-md-3 g-5 mx-auto my-5 pb-5">
       {items.slice(0, 6).map((item) => (
         <HomeSectionItemsData key={item._id} item={item}></HomeSectionItemsData>
       ))}

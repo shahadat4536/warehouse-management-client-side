@@ -14,7 +14,7 @@ import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   return (
-    <div className="mb-5">
+    <div className="container">
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>

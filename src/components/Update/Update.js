@@ -55,7 +55,7 @@ const Update = () => {
   };
 
   return (
-    <div className="row row-cols-1 row-cols-md-3 g-5 container mx-auto w-100 d-flex justify-content-center align-items-center">
+    <div className="row row-cols-1 row-cols-md-3 g-5 mx-auto w-100 d-flex justify-content-center align-items-center">
       <div className="col ">
         <div className="card h-100">
           <img src={item.image} className="card-img-top" alt="..." />
@@ -92,10 +92,7 @@ const Update = () => {
                 value="Update Quantity"
               />
             </form>
-            <button
-              onClick={handleDelivered}
-              className="btn btn-info mx-auto w-100 text-decoration-none text-white mt-2"
-            >
+            <button className="btn btn-info mx-auto w-100 text-decoration-none text-white mt-2">
               Delivered
             </button>
           </div>
