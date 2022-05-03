@@ -5,53 +5,58 @@ const Update = () => {
   const { id } = useParams();
   const [item, setItem] = useState({});
   const [isReload, setIsReload] = useState(false);
+  const [isReload2, setIsReload2] = useState(false);
+
   useEffect(() => {
     const url = `http://localhost:5000/item/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setItem(data));
-  }, [isReload, item]);
+  }, [isReload, isReload2]);
 
   const handleQuantity = (event) => {
     event.preventDefault();
     const previousQuantity = item.quantity;
     const currentQuantity = event.target.quantity.value;
-    const quantity = Number(currentQuantity) + Number(previousQuantity);
-    const updateQuantity = { quantity };
+    if (currentQuantity < 0) {
+      alert("Please Enter Positive Number");
+      event.target.reset();
+    } else {
+      const quantity = Number(currentQuantity) + Number(previousQuantity);
+      const updateQuantity = { quantity };
 
-    const url = `http://localhost:5000/item/${id}`;
-    fetch(url, {
-      method: "PUT",
-      body: JSON.stringify(updateQuantity),
-      headers: {
-        "Content-type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setIsReload(!isReload);
-        event.target.reset();
-      });
+      const url = `http://localhost:5000/item/${id}`;
+      fetch(url, {
+        method: "PUT",
+        body: JSON.stringify(updateQuantity),
+        headers: {
+          "Content-type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setIsReload(!isReload);
+          event.target.reset();
+        });
+    }
   };
   // 1 click 1 item out
   const handleDelivered = () => {
     const previousQuantity = item.quantity;
-
-    const oneItemDelivered = Number(previousQuantity) - 1;
+    const number = Number(1);
+    const oneItemDelivered = Number(previousQuantity) - Number(1);
     const deliveredQuantity = { oneItemDelivered };
 
     const url = `http://localhost:5000/item/${id}`;
     fetch(url, {
-      method: "PATCH",
-      body: JSON.stringify(deliveredQuantity),
+      method: "PUT",
+      body: JSON.stringify(oneItemDelivered),
       headers: {
         "Content-type": "application/json",
       },
     })
       .then((response) => response.json())
-      .then((data) => {
-        setIsReload(!isReload);
-      });
+      .then((data) => {});
   };
 
   return (
@@ -85,7 +90,12 @@ const Update = () => {
               </tbody>
             </table>
             <form onSubmit={handleQuantity}>
-              <input className="mx-auto w-100" type="number" name="quantity" />
+              <input
+                className="mx-auto w-100"
+                type="number"
+                name="quantity"
+                required
+              />
               <input
                 className="btn btn-info mx-auto w-100 text-decoration-none text-white mt-2"
                 type="submit"

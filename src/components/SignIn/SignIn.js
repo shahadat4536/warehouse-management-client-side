@@ -10,12 +10,12 @@ import SocialSignIn from "../SocialSignIn/SocialSignIn";
 import "./SignIn.css";
 const SignIn = () => {
   const navigate = useNavigate();
-
+  const [user, loading, error] = useAuthState(auth);
   let location = useLocation();
   // const [user] = useAuthState(auth);
 
   let from = location.state?.from?.pathname || "/";
-  const [signInWithEmailAndPassword, user, loading, error] =
+  const [signInWithEmailAndPassword, signUser, signLoading, signError] =
     useSignInWithEmailAndPassword(auth);
 
   const handleSignIn = (event) => {
@@ -26,6 +26,21 @@ const SignIn = () => {
   };
 
   if (user) {
+    console.log(user);
+    const url = `http://localhost:5000/login`;
+
+    fetch("http://localhost:5000/login", {
+      method: "POST",
+      body: JSON.stringify({
+        email: user.email,
+      }),
+      headers: {
+        "Content-type": "application/json;",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json));
+
     navigate(from, { replace: true });
   }
   console.log(error);
