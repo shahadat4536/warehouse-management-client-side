@@ -13,11 +13,13 @@ const AddItems = () => {
     const quantity = event.target.quantity.value;
     const price = event.target.price.value;
     const image = event.target.image.value;
+    const email = user?.email;
 
     console.log(productName, description, supplierName, price, image);
     fetch("http://localhost:5000/item", {
       method: "POST",
       body: JSON.stringify({
+        email,
         productName,
         description,
         supplierName,
