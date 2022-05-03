@@ -1,7 +1,10 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 
 const AddItems = () => {
+  const [user, loading, error] = useAuthState(auth);
   const handleAddItem = (event) => {
     event.preventDefault();
     const productName = event.target.pdName.value;
@@ -23,6 +26,7 @@ const AddItems = () => {
         image,
       }),
       headers: {
+        authorization: `${user.email} ${localStorage.getItem("accessToken")}`,
         "Content-type": "application/json",
       },
     })

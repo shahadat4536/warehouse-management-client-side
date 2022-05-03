@@ -6,12 +6,17 @@ import {
   useSignInWithGithub,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
+import Loading from "../Loading/Loading";
 
 const SocialSignIn = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
   const [signInWithGithub, gitHubUser, gitHubLoading, gitHubError] =
     useSignInWithGithub(auth);
+
+  if (googleLoading || gitHubLoading) {
+    return <Loading></Loading>;
+  }
   return (
     <div className="d-flex justify-content-around">
       <button className="border-0 bg-white">
