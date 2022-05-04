@@ -11,7 +11,8 @@ const Delivered = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setItem(data));
-  }, [item]);
+  }, [isReload]);
+
   const handleDelivered = () => {
     const previousQuantity = item.quantity;
 
@@ -28,17 +29,18 @@ const Delivered = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        setItem(data);
+        setIsReload(!isReload);
       });
   };
   return (
     <div>
-      <button
+      {/* <button
         onClick={handleDelivered}
         className="btn btn-info mx-auto w-100 text-decoration-none text-white mt-2"
       >
         Delivered
-      </button>
+      </button> */}
+      <Update handleDelivered={handleDelivered}></Update>
     </div>
   );
 };

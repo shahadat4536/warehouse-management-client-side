@@ -1,33 +1,74 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialSignIn from "../SocialSignIn/SocialSignIn";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useAuthState,
+  useCreateUserWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import { toast } from "react-toastify";
+import Loading from "../Loading/Loading";
 
 const SignUp = () => {
-  // const [email, setEmail] = useState(" ");
-  // const [password, setPassword] = useState(" ");
-  // const [confirmPassword, setConfirmPassword] = useState(" ");
+  const navigate = useNavigate();
+  const [user, loading, error] = useAuthState(auth);
 
-  const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  let location = useLocation();
+  // const [user] = useAuthState(auth);
 
-  // const handleEmail = (event) => {
-  //   const email = event.target.email.value;
-  //   setEmail(email);
-  // };
-  // const handlePassword = (event) => {
-  //   const password = event.target.password.value;
-  //   setPassword(password);
-  // };
-  const handleConfirmPassword = (e) => {};
+  let from = location.state?.from?.pathname || "/";
+
+  const [
+    createUserWithEmailAndPassword,
+    creatUeser,
+    createLoading,
+    createError,
+  ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+  if (user) {
+    navigate(from, { replace: true });
+  }
+
+  console.log(error, createError);
+
+  let errorElement;
 
   const handleSignUp = (event) => {
     event.preventDefault();
+    const name = event.target.name.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
-    createUserWithEmailAndPassword(email, password);
+    const confirmPassword = event.target.confirmPassword.value;
+    const phoneNumber = event.target.number.value;
+    console.log(name, email, password, phoneNumber);
+
+    if (createError) {
+      return toast(createError?.message);
+    }
+    if (password === confirmPassword) {
+      createUserWithEmailAndPassword(email, password);
+
+      //----------------------------------------------------------------//
+      fetch("http://localhost:5000/users", {
+        method: "POST",
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+          phoneNumber,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+        });
+    } else {
+      toast.error("Those passwords didn’t match. Try again.");
+    }
   };
   return (
     <div>
@@ -42,6 +83,10 @@ const SignUp = () => {
 
         <div>
           <Form onSubmit={handleSignUp}>
+            <Form.Group className="mb-3" controlId="formBasicText">
+              <Form.Label>Name</Form.Label>
+              <Form.Control name="name" type="text" />
+            </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control name="email" type="email" />
@@ -51,13 +96,18 @@ const SignUp = () => {
               <Form.Label>Password</Form.Label>
               <Form.Control name="password" type="password" />
             </Form.Group>
-            {/* <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Confirm Password </Form.Label>
-              <Form.Control type="password" />
-            </Form.Group> */}
+              <Form.Control name="confirmPassword" type="password" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Phone Number</Form.Label>
+              <Form.Control name="number" type="text" />
+            </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
               <Form.Check type="checkbox" label="Check me out" />
             </Form.Group>
+            {errorElement}
             <Button
               className="w-100 mx-auto px-auto"
               variant="primary"

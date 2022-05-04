@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Update = () => {
   const { id } = useParams();
@@ -37,26 +38,38 @@ const Update = () => {
         .then((data) => {
           setIsReload(!isReload);
           event.target.reset();
+          toast.success("Quantity Update Successful", {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
         });
     }
   };
   // 1 click 1 item out
   const handleDelivered = () => {
     const previousQuantity = item.quantity;
-    const number = Number(1);
-    const oneItemDelivered = Number(previousQuantity) - Number(1);
-    const deliveredQuantity = { oneItemDelivered };
+
+    const oneItemDelivered = Number(previousQuantity) - 1;
+    const deliveredQuantity = oneItemDelivered.toString();
+    console.log(JSON.stringify({ deliveredQuantity }));
 
     const url = `http://localhost:5000/item/${id}`;
     fetch(url, {
-      method: "PUT",
-      body: JSON.stringify(oneItemDelivered),
+      method: "PATCH",
+      body: JSON.stringify({ deliveredQuantity }),
       headers: {
         "Content-type": "application/json",
       },
     })
       .then((response) => response.json())
-      .then((data) => {});
+      .then((data) => {
+        setIsReload2(!isReload2);
+      });
   };
 
   return (
@@ -102,7 +115,10 @@ const Update = () => {
                 value="Update Quantity"
               />
             </form>
-            <button className="btn btn-info mx-auto w-100 text-decoration-none text-white mt-2">
+            <button
+              onClick={handleDelivered}
+              className="btn btn-info mx-auto w-100 text-decoration-none text-white mt-2"
+            >
               Delivered
             </button>
           </div>

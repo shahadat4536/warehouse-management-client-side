@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
 const AddItems = () => {
@@ -34,6 +35,15 @@ const AddItems = () => {
     })
       .then((response) => response.json())
       .then((data) => {
+        toast.success("Product Upload Successful", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
         event.target.reset();
       });
   };

@@ -13,7 +13,7 @@ const HomeSectionItemsData = ({ item }) => {
     _id,
   } = item;
   return (
-    <div className="col ">
+    <div className="col position-relative">
       <div className="card h-100">
         <img src={image} className="card-img-top" alt="..." />
         <div className="card-body">
@@ -41,7 +41,7 @@ const HomeSectionItemsData = ({ item }) => {
               </tr>
             </tbody>
           </table>
-          <button className="btn btn-info mx-auto w-100">
+          <button className="btn btn-info mx-auto w-100 ">
             <Link
               className="text-decoration-none text-white"
               to={`/update/${_id}`}

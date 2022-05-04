@@ -12,6 +12,8 @@ import Update from "./components/Update/Update";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
 import NotFound from "./components/NotFound/NotFound";
 import MyItems from "./components/MyItems/MyItems";
+import Blogs from "./components/Blogs/Blogs";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -58,8 +60,10 @@ function App() {
             </RequireAuth>
           }
         ></Route>
+        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
+      <ToastContainer />
     </div>
   );
 }
