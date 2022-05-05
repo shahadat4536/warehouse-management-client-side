@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { PageItem } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import PageTitle from "../PageTitle/PageTitle";
 
 const MyItems = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -18,6 +20,7 @@ const MyItems = () => {
   }, [user]);
   return (
     <div className="row row-cols-1 row-cols-md-3 g-5 mx-auto my-5 pb-5 ">
+      <PageTitle title="My Items"></PageTitle>
       {myItems.map((myItem) => (
         <div className="col position-relative">
           <div className="card h-100">

@@ -6,6 +6,7 @@ import {
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
+import PageTitle from "../PageTitle/PageTitle";
 import SocialSignIn from "../SocialSignIn/SocialSignIn";
 import "./SignIn.css";
 const SignIn = () => {
@@ -48,6 +49,7 @@ const SignIn = () => {
       className="px-3 py-3 mt-5 container shadow-lg rounded-3 auth"
       width={"350px"}
     >
+      <PageTitle title="Sign In"></PageTitle>
       <div className="mt-5 mb-5">
         <h1 className="text-center mt-5 mb-5">Sign In</h1>
         <SocialSignIn></SocialSignIn>

@@ -41,14 +41,11 @@ const HomeSectionItemsData = ({ item }) => {
               </tr>
             </tbody>
           </table>
-          <button className="btn btn-info mx-auto w-100 ">
-            <Link
-              className="text-decoration-none text-white"
-              to={`/update/${_id}`}
-            >
+          <Link className="text-decoration-none " to={`/update/${_id}`}>
+            <button className="btn btn-info mx-auto w-100 text-white">
               Update
-            </Link>
-          </button>
+            </button>
+          </Link>
         </div>
       </div>
     </div>

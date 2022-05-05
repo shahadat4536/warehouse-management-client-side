@@ -9,6 +9,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 import auth from "../../firebase.init";
+import PageTitle from "../PageTitle/PageTitle";
 
 const ForgotPassword = () => {
   const [sendPasswordResetEmail, sending, error] =
@@ -42,6 +43,7 @@ const ForgotPassword = () => {
   console.log(error);
   return (
     <div>
+      <PageTitle title="Forgot Password"></PageTitle>
       <div
         className="px-3 py-3 mt-5 my-auto mx-auto container shadow-lg rounded-3 auth"
         width={"350px"}

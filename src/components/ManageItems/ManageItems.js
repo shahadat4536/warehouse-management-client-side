@@ -4,6 +4,7 @@ import useItems from "../../hook/useItems";
 import ManageItemsData from "../ManageItemsData/ManageItemsData";
 import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
+import PageTitle from "../PageTitle/PageTitle";
 
 const ManageItems = () => {
   const [items, setItems] = useState([]);
@@ -47,6 +48,7 @@ const ManageItems = () => {
           handleDelete={handleDelete}
         ></ManageItemsData>
       ))}
+      <PageTitle title="Manage Items"></PageTitle>
     </div>
   );
 };

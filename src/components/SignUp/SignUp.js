@@ -9,6 +9,7 @@ import {
 import auth from "../../firebase.init";
 import { toast } from "react-toastify";
 import Loading from "../Loading/Loading";
+import PageTitle from "../PageTitle/PageTitle";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -72,6 +73,7 @@ const SignUp = () => {
   };
   return (
     <div>
+      <PageTitle title="SignUp"></PageTitle>
       <div
         className="px-3 py-3  container shadow-lg rounded-3 auth"
         width={"350px"}

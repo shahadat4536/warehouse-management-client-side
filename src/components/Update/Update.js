@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import PageTitle from "../PageTitle/PageTitle";
 
 const Update = () => {
   const { id } = useParams();
@@ -69,11 +70,21 @@ const Update = () => {
       .then((response) => response.json())
       .then((data) => {
         setIsReload2(!isReload2);
+        toast.success("Delivered", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       });
   };
 
   return (
     <div className="row row-cols-1 row-cols-md-3 g-5 mx-auto w-100 d-flex justify-content-center align-items-center">
+      <PageTitle title="Update"></PageTitle>
       <div className="col ">
         <div className="card h-100">
           <img src={item.image} className="card-img-top" alt="..." />
@@ -117,7 +128,7 @@ const Update = () => {
             </form>
             <button
               onClick={handleDelivered}
-              className="btn btn-info mx-auto w-100 text-decoration-none text-white mt-2"
+              className="btn btn-success mx-auto w-100 text-decoration-none text-white mt-2"
             >
               Delivered
             </button>
