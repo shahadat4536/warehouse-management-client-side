@@ -5,11 +5,12 @@ import ManageItemsData from "../ManageItemsData/ManageItemsData";
 import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import PageTitle from "../PageTitle/PageTitle";
+import MyItems from "../MyItems/MyItems";
 
 const ManageItems = () => {
   const [items, setItems] = useState([]);
   useEffect(() => {
-    const url = `http://localhost:5000/items`;
+    const url = ` https://mysterious-fjord-04184.herokuapp.com/items`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setItems(data));
@@ -18,7 +19,7 @@ const ManageItems = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure you want to delete");
     if (proceed) {
-      const url = `http://localhost:5000/item/${id}`;
+      const url = ` https://mysterious-fjord-04184.herokuapp.com/item/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -48,6 +49,7 @@ const ManageItems = () => {
           handleDelete={handleDelete}
         ></ManageItemsData>
       ))}
+
       <PageTitle title="Manage Items"></PageTitle>
     </div>
   );

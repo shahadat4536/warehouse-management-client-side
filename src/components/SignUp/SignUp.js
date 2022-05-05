@@ -14,59 +14,55 @@ import PageTitle from "../PageTitle/PageTitle";
 const SignUp = () => {
   const navigate = useNavigate();
   const [user, loading, error] = useAuthState(auth);
-
   let location = useLocation();
-  // const [user] = useAuthState(auth);
-
   let from = location.state?.from?.pathname || "/";
-
   const [
     createUserWithEmailAndPassword,
     creatUeser,
     createLoading,
     createError,
   ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  let errorElement;
 
   if (user) {
     navigate(from, { replace: true });
   }
 
-  console.log(error, createError);
+  if (createError?.message === "Firebase: Error (auth/email-already-in-use).") {
+    errorElement = <p className="text-danger text-center">Email Already Use</p>;
+  }
 
-  let errorElement;
+  console.log(error, createError);
 
   const handleSignUp = (event) => {
     event.preventDefault();
-    const name = event.target.name.value;
+    // const name = event.target.name.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
     const confirmPassword = event.target.confirmPassword.value;
-    const phoneNumber = event.target.number.value;
-    console.log(name, email, password, phoneNumber);
+    // const phoneNumber = event.target.number.value;
+    // console.log(name, email, password, phoneNumber);
 
-    if (createError) {
-      return toast(createError?.message);
-    }
     if (password === confirmPassword) {
       createUserWithEmailAndPassword(email, password);
 
       //----------------------------------------------------------------//
-      fetch("http://localhost:5000/users", {
-        method: "POST",
-        body: JSON.stringify({
-          name,
-          email,
-          password,
-          phoneNumber,
-        }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-        });
+      // fetch("http://localhost:5000/users", {
+      //   method: "POST",
+      //   body: JSON.stringify({
+      //     name,
+      //     email,
+      //     password,
+      //     phoneNumber,
+      //   }),
+      //   headers: {
+      //     "Content-type": "application/json; charset=UTF-8",
+      //   },
+      // })
+      //   .then((response) => response.json())
+      //   .then((data) => {
+      //     console.log(data);
+      //   });
     } else {
       toast.error("Those passwords didn’t match. Try again.");
     }
@@ -85,10 +81,10 @@ const SignUp = () => {
 
         <div>
           <Form onSubmit={handleSignUp}>
-            <Form.Group className="mb-3" controlId="formBasicText">
+            {/* <Form.Group className="mb-3" controlId="formBasicText">
               <Form.Label>Name</Form.Label>
               <Form.Control name="name" type="text" />
-            </Form.Group>
+            </Form.Group> */}
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control name="email" type="email" />
@@ -102,13 +98,13 @@ const SignUp = () => {
               <Form.Label>Confirm Password </Form.Label>
               <Form.Control name="confirmPassword" type="password" />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+            {/* <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Phone Number</Form.Label>
               <Form.Control name="number" type="text" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            </Form.Group> */}
+            {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
               <Form.Check type="checkbox" label="Check me out" />
-            </Form.Group>
+            </Form.Group> */}
             {errorElement}
             <Button
               className="w-100 mx-auto px-auto"
@@ -117,6 +113,7 @@ const SignUp = () => {
             >
               Sign Up
             </Button>
+
             <div className="">
               <p className="text-center mt-2 text-decoration-none">
                 Already have an account?

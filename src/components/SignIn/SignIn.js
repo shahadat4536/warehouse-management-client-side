@@ -26,8 +26,20 @@ const SignIn = () => {
     signInWithEmailAndPassword(email, password);
   };
 
+  let errorElement;
+
+  if (signError?.message === `Firebase: Error (auth/user-not-found).`) {
+    errorElement = <p className="text-danger text-center">User Not Found</p>;
+  }
+
+  if (signError?.message === `Firebase: Error (auth/wrong-password).`) {
+    errorElement = (
+      <p className="text-danger text-center">Your Password Wrong</p>
+    );
+  }
+
   if (user) {
-    const url = `http://localhost:5000/login`;
+    const url = ` https://mysterious-fjord-04184.herokuapp.com/login`;
     fetch(url, {
       method: "POST",
       body: JSON.stringify({
@@ -65,15 +77,14 @@ const SignIn = () => {
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>
               Password{" "}
-              <Link className="text-secondary" to="/forgetpassword">
+              <Link className="text-danger" to="/forgetpassword">
                 Forget Password
               </Link>
             </Form.Label>
             <Form.Control name="password" type="password" />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Check me out" />
-          </Form.Group>
+
+          {errorElement}
           <Button
             className="w-100 mx-auto px-auto"
             variant="primary"

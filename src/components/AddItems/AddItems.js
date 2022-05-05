@@ -18,7 +18,7 @@ const AddItems = () => {
     const email = user?.email;
 
     console.log(productName, description, supplierName, price, image);
-    fetch("http://localhost:5000/item", {
+    fetch(" https://mysterious-fjord-04184.herokuapp.com/item", {
       method: "POST",
       body: JSON.stringify({
         email,

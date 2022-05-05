@@ -23,7 +23,7 @@ const SocialSignIn = () => {
         <img
           onClick={() => signInWithGoogle()}
           src={google}
-          width={"20px"}
+          width={"30px"}
           alt=""
           srcset=""
         />
@@ -32,7 +32,7 @@ const SocialSignIn = () => {
         <img
           onClick={() => signInWithGithub()}
           src={github}
-          width={"20px"}
+          width={"30px"}
           alt=""
           srcset=""
         />

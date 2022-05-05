@@ -10,7 +10,7 @@ const Update = () => {
   const [isReload2, setIsReload2] = useState(false);
 
   useEffect(() => {
-    const url = `http://localhost:5000/item/${id}`;
+    const url = ` https://mysterious-fjord-04184.herokuapp.com/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setItem(data));
@@ -27,7 +27,7 @@ const Update = () => {
       const quantity = Number(currentQuantity) + Number(previousQuantity);
       const updateQuantity = { quantity };
 
-      const url = `http://localhost:5000/item/${id}`;
+      const url = ` https://mysterious-fjord-04184.herokuapp.com/${id}`;
       fetch(url, {
         method: "PUT",
         body: JSON.stringify(updateQuantity),
@@ -59,7 +59,7 @@ const Update = () => {
     const deliveredQuantity = oneItemDelivered.toString();
     console.log(JSON.stringify({ deliveredQuantity }));
 
-    const url = `http://localhost:5000/item/${id}`;
+    const url = ` https://mysterious-fjord-04184.herokuapp.com/${id}`;
     fetch(url, {
       method: "PATCH",
       body: JSON.stringify({ deliveredQuantity }),
