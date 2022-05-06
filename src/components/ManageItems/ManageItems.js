@@ -6,6 +6,7 @@ import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import PageTitle from "../PageTitle/PageTitle";
 import MyItems from "../MyItems/MyItems";
+import { Link } from "react-router-dom";
 
 const ManageItems = () => {
   const [items, setItems] = useState([]);
@@ -42,15 +43,35 @@ const ManageItems = () => {
     }
   };
   return (
-    <div className="row row-cols-1 row-cols-md-3 g-5 mx-auto my-5 pb-5 ">
-      {items.map((item) => (
-        <ManageItemsData
-          item={item}
-          handleDelete={handleDelete}
-        ></ManageItemsData>
-      ))}
+    <div className="mt-5">
+      {/* <h2 className="text-center ">
+        Manage
+        <span className="ms-2 text-info">ITEM</span>
+      </h2> */}
 
-      <PageTitle title="Manage Items"></PageTitle>
+      <div className="row">
+        <h2 className="text-sm-center text-lg-end pb-3 col-sm-12 col-lg-7">
+          Manage
+          <span className="ms-2 text-info">ITEM</span>
+        </h2>
+
+        <Link
+          to="/additems"
+          className=" text-decoration-none col-sm-12 col-lg-5 text-sm-center text-lg-end "
+        >
+          <button className=" btn btn-info  text-white">Add New Item</button>
+        </Link>
+      </div>
+      <div className="row row-cols-1 row-cols-md-3 g-5 mx-auto my-5 pb-5 ">
+        {items.map((item) => (
+          <ManageItemsData
+            item={item}
+            handleDelete={handleDelete}
+          ></ManageItemsData>
+        ))}
+
+        <PageTitle title="Manage Items"></PageTitle>
+      </div>
     </div>
   );
 };

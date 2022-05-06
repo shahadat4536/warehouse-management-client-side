@@ -14,6 +14,7 @@ import NotFound from "./components/NotFound/NotFound";
 import MyItems from "./components/MyItems/MyItems";
 import Blogs from "./components/Blogs/Blogs";
 import { ToastContainer } from "react-toastify";
+import AddShowroom from "./components/AddShowroom/AddShowroom";
 
 function App() {
   return (
@@ -24,6 +25,10 @@ function App() {
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/signin" element={<SignIn></SignIn>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
+        <Route
+          path="/addshowroom"
+          element={<AddShowroom></AddShowroom>}
+        ></Route>
         <Route
           path="/forgetpassword"
           element={<ForgotPassword></ForgotPassword>}

@@ -11,7 +11,10 @@ import suzuki from "../../../asset/Brand/suzuki.jpg";
 const Brand = () => {
   return (
     <div className="container">
-      <h2 className="text-center">Available Brand</h2>
+      <h2 className="text-center">
+        Available
+        <span> Brand</span>
+      </h2>
       <div className="text-center row my-3">
         <img className="col-6 col-lg-3" src={aprila} alt="" srcset="" />
         <img className="col-6 col-lg-3" src={bajaj} alt="" srcset="" />

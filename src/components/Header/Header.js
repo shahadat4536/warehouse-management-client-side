@@ -3,6 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 import { signOut } from "firebase/auth";
+import CustomLink from "../CustomLink/CustomLink";
 
 const Header = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -30,33 +31,50 @@ const Header = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link
+              <CustomLink
                 to="blogs"
                 className="nav-link text-dark"
                 aria-current="page"
               >
                 Blogs
-              </Link>
+              </CustomLink>
             </li>
 
             {user ? (
               <li className="nav-item">
-                <Link
+                <CustomLink
                   to="manageitems"
                   className="nav-link text-dark"
                   aria-current="page"
                 >
                   Manage Items
-                </Link>
+                </CustomLink>
               </li>
             ) : (
               ""
             )}
             {user ? (
               <li className="nav-item">
-                <Link to="/additems" className="nav-link text-dark" href="#">
+                <CustomLink
+                  to="/additems"
+                  className="nav-link text-dark"
+                  href="#"
+                >
                   Add Items
-                </Link>
+                </CustomLink>
+              </li>
+            ) : (
+              ""
+            )}
+            {user ? (
+              <li className="nav-item">
+                <CustomLink
+                  to="/addshowroom"
+                  className="nav-link text-dark"
+                  href="#"
+                >
+                  Add Showroom
+                </CustomLink>
               </li>
             ) : (
               ""
@@ -64,9 +82,9 @@ const Header = () => {
 
             {user ? (
               <li className="nav-item text-dark">
-                <Link to="/myitems" className="nav-link text-dark">
+                <CustomLink to="/myitems" className="nav-link text-dark">
                   My Items
-                </Link>
+                </CustomLink>
               </li>
             ) : (
               ""

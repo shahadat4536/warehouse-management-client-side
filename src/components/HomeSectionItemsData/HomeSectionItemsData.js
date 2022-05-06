@@ -12,6 +12,13 @@ const HomeSectionItemsData = ({ item }) => {
     image,
     _id,
   } = item;
+
+  let quantity2;
+  if (item?.quantity <= 0) {
+    quantity2 = "Sold Out";
+  } else {
+    quantity2 = item?.quantity;
+  }
   return (
     <div className="col position-relative">
       <div className="card h-100">
@@ -37,7 +44,7 @@ const HomeSectionItemsData = ({ item }) => {
               </tr>
               <tr>
                 <th scope="row">Quantity</th>
-                <td>{quantity}</td>
+                <td>{quantity2}</td>
               </tr>
             </tbody>
           </table>

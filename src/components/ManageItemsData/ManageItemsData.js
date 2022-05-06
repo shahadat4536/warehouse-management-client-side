@@ -42,14 +42,11 @@ const ManageItemsData = ({ item, handleDelete }) => {
                 </tr>
               </tbody>
             </table>
-            <button className="btn btn-info mx-auto w-100 ">
-              <Link
-                className="text-decoration-none text-white"
-                to={`/update/${_id}`}
-              >
+            <Link to={`/update/${_id}`} className=" text-decoration-none  ">
+              <button className=" btn btn-info mx-auto w-100 text-white">
                 Update
-              </Link>
-            </button>
+              </button>
+            </Link>
             <button
               className="btn btn-danger mx-auto w-100 text-white mt-2 "
               onClick={() => handleDelete(_id)}

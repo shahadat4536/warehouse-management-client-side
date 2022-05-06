@@ -7,7 +7,7 @@ import copyright from "../../asset/icon/copyright-solid.svg";
 
 const Footer = () => {
   return (
-    <div className=" bg-dark h-5 py-2 row  px-5">
+    <div className=" bg-dark h-5 mb-2 py-2 row  px-5">
       <div className="col-8">
         <p className="text-white">
           <img
@@ -18,7 +18,9 @@ const Footer = () => {
             srcset=""
           />
           Copyright 2021 Buraq Bike Warehouse Developed by{" "}
-          <span className="text-info">Max Web Service limited</span>
+          <a href="" target="_blank">
+            <span className="text-info">Max Web Service limited</span>
+          </a>
         </p>
       </div>
       <div className="col-4">
@@ -30,7 +32,7 @@ const Footer = () => {
           >
             <img
               style={{ width: "20px" }}
-              className=""
+              className="me-2"
               src={whatsapp}
               alt=""
               srcset=""
@@ -38,14 +40,14 @@ const Footer = () => {
           </a>
           <img
             style={{ width: "20px" }}
-            className=""
+            className="me-2"
             src={messenger}
             alt=""
             srcset=""
           />
           <img
             style={{ width: "20px" }}
-            className=""
+            className="me-2"
             src={phone}
             alt=""
             srcset=""
