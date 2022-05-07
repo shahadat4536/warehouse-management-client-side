@@ -84,7 +84,21 @@ const Blogs = () => {
       </div>
 
       {/* ---------------------------------------------------------------------------- */}
-      <div></div>
+      <div className="card my-5">
+        <div className="card-header">
+          <h4> What is the purpose of jwt and how does it work?</h4>
+        </div>
+        <div className="card-body">
+          <p className="card-text">
+            JWT- JSON Web Token. JWT recently use web application authorization
+            system. প্রথম যখন কোন user SignIn/SignUp করে তখন তার জন্য একটি
+            unique token তৈরি করে server site এ। যখন user কোন কিছু access করে
+            তখন client site থেকে user এর email ta server site এ পাঠায় এবং server
+            site এ user এর তৈরি টোকেন টা র সাথে মিলিয়ে দেখে যে এই user টি আগের
+            user কি না/ রিয়েল user কিনা।
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
