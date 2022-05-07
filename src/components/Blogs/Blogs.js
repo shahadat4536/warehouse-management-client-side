@@ -3,7 +3,7 @@ import PageTitle from "../PageTitle/PageTitle";
 
 const Blogs = () => {
   return (
-    <div>
+    <div className="my-5">
       <PageTitle title="Blogs"></PageTitle>
       <h2>Blogs</h2>
       <div>
@@ -82,6 +82,9 @@ const Blogs = () => {
           </div>
         </div>
       </div>
+
+      {/* ---------------------------------------------------------------------------- */}
+      <div></div>
     </div>
   );
 };
