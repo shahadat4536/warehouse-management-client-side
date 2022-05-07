@@ -53,7 +53,7 @@ const MyItems = () => {
         My
         <span className="ms-2 text-info">Item</span>
       </h2>
-      ;
+
       <div className="row row-cols-1 row-cols-md-3 g-5 mx-auto my-5 pb-5 ">
         {myItems.map((myItem) => (
           <MyItemData
