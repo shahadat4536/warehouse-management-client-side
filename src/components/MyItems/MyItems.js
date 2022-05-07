@@ -48,14 +48,21 @@ const MyItems = () => {
   };
 
   return (
-    <div className="row row-cols-1 row-cols-md-3 g-5 mx-auto my-5 pb-5 ">
-      {myItems.map((myItem) => (
-        <MyItemData
-          handleDelete={handleDelete}
-          key={myItem._id}
-          myItem={myItem}
-        ></MyItemData>
-      ))}
+    <div className="my-5">
+      <h2 className="text-sm-center text-lg-end pb-3 col-sm-12 col-lg-7">
+        My
+        <span className="ms-2 text-info">Item</span>
+      </h2>
+      ;
+      <div className="row row-cols-1 row-cols-md-3 g-5 mx-auto my-5 pb-5 ">
+        {myItems.map((myItem) => (
+          <MyItemData
+            handleDelete={handleDelete}
+            key={myItem._id}
+            myItem={myItem}
+          ></MyItemData>
+        ))}
+      </div>
     </div>
   );
 };

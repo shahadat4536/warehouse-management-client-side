@@ -51,7 +51,11 @@ const AddItems = () => {
 
   return (
     <div>
-      <PageTitle title="AddItems"></PageTitle>
+      <PageTitle title="AddItem"></PageTitle>
+      <h2 className="text-sm-center text-lg-end pb-3 col-sm-12 col-lg-7">
+        Add
+        <span className="ms-2 text-info">Item</span>
+      </h2>
       <Form
         onSubmit={handleAddItem}
         className="px-3 py-3 mt-5 container shadow-lg rounded-3"

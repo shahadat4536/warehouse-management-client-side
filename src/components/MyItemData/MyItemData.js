@@ -37,13 +37,13 @@ const MyItemData = ({ myItem, handleDelete }) => {
                 </tr>
               </tbody>
             </table>
-            <button
-              className="btn btn-danger mx-auto w-100 text-white mt-2 "
-              onClick={() => handleDelete(myItem._id)}
-            >
-              Delete
-            </button>
           </div>
+          <button
+            className="btn btn-danger mx-auto w-100 text-white mt-2 "
+            onClick={() => handleDelete(myItem._id)}
+          >
+            Delete
+          </button>
         </div>
       </div>
     </div>

@@ -44,11 +44,6 @@ const ManageItems = () => {
   };
   return (
     <div className="mt-5">
-      {/* <h2 className="text-center ">
-        Manage
-        <span className="ms-2 text-info">ITEM</span>
-      </h2> */}
-
       <div className="row">
         <h2 className="text-sm-center text-lg-end pb-3 col-sm-12 col-lg-7">
           Manage

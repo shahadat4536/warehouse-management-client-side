@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
+import PageTitle from "../PageTitle/PageTitle";
 
 const AddShowroom = () => {
   const handleAddShowroom = (event) => {
@@ -23,12 +24,17 @@ const AddShowroom = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        event.target.reset();
       });
   };
   return (
     <div>
-      <h2>AddShowroom</h2>
+      <PageTitle title="AddShowroom"></PageTitle>
+
+      <h2 className="text-sm-center text-lg-end pb-3 col-sm-12 col-lg-7">
+        Add
+        <span className="ms-2 text-info">Showroom</span>
+      </h2>
 
       <Form
         onSubmit={handleAddShowroom}
