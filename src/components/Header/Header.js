@@ -102,11 +102,6 @@ const Header = () => {
               <Link className="text-decoration-none " to="/signin">
                 <button className="btn btn-info text-white">SignIn</button>
               </Link>
-              // <button >
-              //   <Link className="text-decoration-none text-white" to="/signin">
-              //     SignIn
-              //   </Link>
-              // </button>
             )}
           </form>
         </div>

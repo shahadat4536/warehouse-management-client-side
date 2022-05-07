@@ -62,7 +62,7 @@ const Update = () => {
     if (item?.quantity <= 0) {
       return;
     } else {
-      const url = `http://localhost:5000/item/${id}`;
+      const url = `https://mysterious-fjord-04184.herokuapp.com/item/${id}`;
       fetch(url, {
         method: "PATCH",
         body: JSON.stringify({ deliveredQuantity }),

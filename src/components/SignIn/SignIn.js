@@ -16,6 +16,7 @@ const SignIn = () => {
   // const [user] = useAuthState(auth);
 
   let from = location.state?.from?.pathname || "/";
+
   const [signInWithEmailAndPassword, signUser, signLoading, signError] =
     useSignInWithEmailAndPassword(auth);
 
@@ -39,7 +40,7 @@ const SignIn = () => {
   }
 
   if (user) {
-    const url = ` https://mysterious-fjord-04184.herokuapp.com/login`;
+    const url = `https://mysterious-fjord-04184.herokuapp.com/login`;
     fetch(url, {
       method: "POST",
       body: JSON.stringify({
@@ -55,7 +56,7 @@ const SignIn = () => {
         navigate(from, { replace: true });
       });
   }
-  console.log(error);
+
   return (
     <div
       className="px-3 py-3 mt-5 container shadow-lg rounded-3 auth"

@@ -4,11 +4,12 @@ import whatsapp from "../../asset/icon/whatsapp-brands.svg";
 import messenger from "../../asset/icon/facebook-messenger-brands.svg";
 import phone from "../../asset/icon/phone-solid.svg";
 import copyright from "../../asset/icon/copyright-solid.svg";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <div className=" bg-dark h-5 mb-2 py-2 row  px-5">
-      <div className="col-8">
+      <div className="col-sm-8 row">
         <p className="text-white">
           <img
             className="me-2 "
@@ -17,14 +18,17 @@ const Footer = () => {
             alt=""
             srcset=""
           />
-          Copyright 2021 Buraq Bike Warehouse Developed by{" "}
+          Copyright 2021 Buraq Bike Industries LTD. Developed by{" "}
           <a href="" target="_blank">
             <span className="text-info">Max Web Service limited</span>
           </a>
         </p>
       </div>
-      <div className="col-4">
+      <div className="col-sm-4">
         <p>
+          <Link className="text-decoration-none me-2" to="/about">
+            About Us
+          </Link>
           <span className="text-white me-2">Contact</span>
           <a
             href=" https://api.whatsapp.com/send/?phone=%2B8801954704007&text&app_absent=0"
