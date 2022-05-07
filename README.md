@@ -11,3 +11,4 @@ WebSite [Live Link](https://github.com/facebook/create-react-app).
 - Email and password login system
 - JWT authorization system
 - Active route system
+- Dynamic page title
