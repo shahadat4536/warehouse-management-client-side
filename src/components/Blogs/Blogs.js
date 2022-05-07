@@ -5,7 +5,7 @@ const Blogs = () => {
   return (
     <div className="my-5">
       <PageTitle title="Blogs"></PageTitle>
-      <h2>Blogs</h2>
+      <h2 className="text-center text-info my-3">Blogs</h2>
       <div>
         <div className="card">
           <div className="card-header">

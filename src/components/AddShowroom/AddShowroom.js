@@ -28,7 +28,7 @@ const AddShowroom = () => {
       });
   };
   return (
-    <div>
+    <div className="my-5">
       <PageTitle title="AddShowroom"></PageTitle>
 
       <h2 className="text-sm-center text-lg-end pb-3 col-sm-12 col-lg-7">

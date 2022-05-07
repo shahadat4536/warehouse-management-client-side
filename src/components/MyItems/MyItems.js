@@ -4,6 +4,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 import MyItemData from "../MyItemData/MyItemData";
+import PageTitle from "../PageTitle/PageTitle";
 
 const MyItems = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -49,6 +50,7 @@ const MyItems = () => {
 
   return (
     <div className="my-5">
+      <PageTitle title="MyItem"></PageTitle>
       <h2 className="text-sm-center text-lg-end pb-3 col-sm-12 col-lg-7">
         My
         <span className="ms-2 text-info">Item</span>
