@@ -15,9 +15,11 @@ const HomeSectionItems = () => {
           ></HomeSectionItemsData>
         ))}
       </div>
-      <Link to="/manageitems" className=" text-decoration-none  mb-5">
-        <button className=" btn btn-info text-white w-100">Manage Item</button>
-      </Link>
+      <div className="text-center text-lg-end container">
+        <Link to="/manageitems" className=" text-decoration-none  mb-5">
+          <button className=" btn btn-info text-white">Manage Item</button>
+        </Link>
+      </div>
     </div>
   );
 };
