@@ -10,7 +10,7 @@ const MyItems = () => {
   const [user, loading, error] = useAuthState(auth);
   const [myItems, setMyItems] = useState([]);
   const [myItem, setMyItem] = useState({});
-  console.log(myItems);
+  // console.log(myItems);
   useEffect(() => {
     const getOrders = async () => {
       const email = user.email;
@@ -20,9 +20,9 @@ const MyItems = () => {
     };
     getOrders();
   }, [user]);
-
+  //---------------------------delete-------------------------//
   const handleDelete = (id) => {
-    console.log(id);
+    // console.log(id);
     const proceed = window.confirm("Are you sure you want to delete");
     if (proceed) {
       const url = ` https://mysterious-fjord-04184.herokuapp.com/${id}`;
@@ -51,7 +51,7 @@ const MyItems = () => {
   return (
     <div className="my-5">
       <PageTitle title="MyItem"></PageTitle>
-      <h2 className="text-sm-center text-lg-end pb-3 col-sm-12 col-lg-7">
+      <h2 className="text-center text-lg-end pb-3 col-sm-12 col-lg-7">
         My
         <span className="ms-2 text-info">Item</span>
       </h2>

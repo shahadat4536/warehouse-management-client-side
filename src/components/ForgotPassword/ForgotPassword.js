@@ -40,7 +40,7 @@ const ForgotPassword = () => {
 
     // }
   };
-  console.log(error);
+  // console.log(error);
   return (
     <div>
       <PageTitle title="Forgot Password"></PageTitle>

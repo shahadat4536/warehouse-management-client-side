@@ -57,7 +57,7 @@ const Update = () => {
 
     const oneItemDelivered = Number(previousQuantity) - 1;
     const deliveredQuantity = oneItemDelivered.toString();
-    console.log(JSON.stringify({ deliveredQuantity }));
+    // console.log(JSON.stringify({ deliveredQuantity }));
 
     if (item?.quantity <= 0) {
       return;
@@ -96,15 +96,15 @@ const Update = () => {
     <div className="mt-5 ">
       <PageTitle title="Update"></PageTitle>
 
-      <div className="row">
-        <h2 className="text-sm-center text-lg-end pb-3 col-sm-12 col-lg-7">
+      <div className="row mb-3">
+        <h2 className="text-center text-lg-end pb-3 col-sm-12 col-lg-7">
           Update
           <span className="ms-2 text-info">ITEM</span>
         </h2>
 
         <Link
           to="/manageitems"
-          className=" text-decoration-none col-sm-12 col-lg-5 text-sm-center text-lg-end "
+          className=" text-decoration-none col-sm-12 col-lg-5 text-center text-lg-end "
         >
           <button className=" btn btn-info  text-white">Manage Item</button>
         </Link>

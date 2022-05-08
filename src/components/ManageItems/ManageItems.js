@@ -16,7 +16,7 @@ const ManageItems = () => {
       .then((res) => res.json())
       .then((data) => setItems(data));
   }, []);
-
+  //---------------------------delete-------------------------//
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure you want to delete");
     if (proceed) {
@@ -45,14 +45,14 @@ const ManageItems = () => {
   return (
     <div className="mt-5">
       <div className="row">
-        <h2 className="text-sm-center text-lg-end pb-3 col-sm-12 col-lg-7">
+        <h2 className="text-center text-lg-end pb-3 col-sm-12 col-lg-7">
           Manage
           <span className="ms-2 text-info">ITEM</span>
         </h2>
 
         <Link
           to="/additems"
-          className=" text-decoration-none col-sm-12 col-lg-5 text-sm-center text-lg-end "
+          className=" text-decoration-none col-sm-12 col-lg-5 text-center text-lg-end "
         >
           <button className=" btn btn-info  text-white">Add New Item</button>
         </Link>

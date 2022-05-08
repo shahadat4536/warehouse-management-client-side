@@ -9,7 +9,7 @@ const AddShowroom = () => {
     const address = event.target.address.value;
     const number = event.target.number.value;
     const map = event.target.map.value;
-    console.log(showroomImage, address, number, map);
+    // console.log(showroomImage, address, number, map);
     fetch("http://localhost:5000/showrooms", {
       method: "POST",
       body: JSON.stringify({
@@ -31,7 +31,7 @@ const AddShowroom = () => {
     <div className="my-5">
       <PageTitle title="AddShowroom"></PageTitle>
 
-      <h2 className="text-sm-center text-lg-end pb-3 col-sm-12 col-lg-7">
+      <h2 className="text-center text-lg-end pb-3 col-sm-12 col-lg-7">
         Add
         <span className="ms-2 text-info">Showroom</span>
       </h2>

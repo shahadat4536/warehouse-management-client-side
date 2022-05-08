@@ -17,7 +17,7 @@ const AddItems = () => {
     const image = event.target.image.value;
     const email = user?.email;
 
-    console.log(productName, description, supplierName, price, image);
+    // console.log(productName, description, supplierName, price, image);
     fetch(" https://mysterious-fjord-04184.herokuapp.com/item", {
       method: "POST",
       body: JSON.stringify({
@@ -52,7 +52,7 @@ const AddItems = () => {
   return (
     <div className="my-5">
       <PageTitle title="AddItem"></PageTitle>
-      <h2 className="text-sm-center text-lg-end pb-3 col-sm-12 col-lg-7">
+      <h2 className="text-center text-lg-end pb-3 col-sm-12 col-lg-7">
         Add
         <span className="ms-2 text-info">Item</span>
       </h2>

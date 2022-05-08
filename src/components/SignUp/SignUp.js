@@ -32,7 +32,7 @@ const SignUp = () => {
     errorElement = <p className="text-danger text-center">Email Already Use</p>;
   }
 
-  console.log(error, createError);
+  // console.log(error, createError);
 
   const handleSignUp = (event) => {
     event.preventDefault();
