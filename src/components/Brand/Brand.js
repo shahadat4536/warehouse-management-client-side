@@ -10,7 +10,7 @@ import suzuki from "../../asset/Brand/suzuki.jpg";
 
 const Brand = () => {
   return (
-    <div className="container">
+    <div className="container mt-5">
       <h2 className="text-center text-lg-end pb-3 col-sm-12 col-lg-7">
         Available
         <span className="ms-2 text-info">Brand</span>
