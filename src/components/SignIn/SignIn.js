@@ -40,7 +40,7 @@ const SignIn = () => {
   }
 
   if (user) {
-    const url = `https://mysterious-fjord-04184.herokuapp.com/login`;
+    const url = `https://warehouse-management-server-side-oftd.onrender.com/login`;
     fetch(url, {
       method: "POST",
       body: JSON.stringify({

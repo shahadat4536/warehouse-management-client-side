@@ -14,7 +14,7 @@ const MyItems = () => {
   useEffect(() => {
     const getOrders = async () => {
       const email = user.email;
-      const url = ` https://mysterious-fjord-04184.herokuapp.com/myitem?email=${email}`;
+      const url = ` https://warehouse-management-server-side-oftd.onrender.com/myitem?email=${email}`;
       const { data } = await axios.get(url);
       setMyItems(data);
     };
@@ -25,7 +25,7 @@ const MyItems = () => {
     // console.log(id);
     const proceed = window.confirm("Are you sure you want to delete");
     if (proceed) {
-      const url = ` https://mysterious-fjord-04184.herokuapp.com/${id}`;
+      const url = ` https://warehouse-management-server-side-oftd.onrender.com/${id}`;
       fetch(url, {
         method: "DELETE",
       })

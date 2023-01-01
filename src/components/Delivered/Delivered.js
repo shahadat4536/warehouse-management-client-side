@@ -7,7 +7,7 @@ const Delivered = () => {
   const [item, setItem] = useState({});
   const [isReload, setIsReload] = useState(false);
   useEffect(() => {
-    const url = ` https://mysterious-fjord-04184.herokuapp.com/${id}`;
+    const url = ` https://warehouse-management-server-side-oftd.onrender.com/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setItem(data));
@@ -19,7 +19,7 @@ const Delivered = () => {
     const oneItemDelivered = Number(previousQuantity) - 1;
     const deliveredQuantity = { oneItemDelivered };
 
-    const url = ` https://mysterious-fjord-04184.herokuapp.com/${id}`;
+    const url = ` https://warehouse-management-server-side-oftd.onrender.com/${id}`;
     fetch(url, {
       method: "PUT",
       body: JSON.stringify(deliveredQuantity),

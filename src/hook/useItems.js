@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const useItems = () => {
   const [items, setItems] = useState([]);
   useEffect(() => {
-    const url = ` https://mysterious-fjord-04184.herokuapp.com/items`;
+    const url = ` https://warehouse-management-server-side-oftd.onrender.com/items`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setItems(data));

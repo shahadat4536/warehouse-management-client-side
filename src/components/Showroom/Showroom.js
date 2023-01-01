@@ -5,7 +5,7 @@ const Showroom = () => {
   const [showrooms, setShowrooms] = useState([]);
 
   useEffect(() => {
-    const url = `https://mysterious-fjord-04184.herokuapp.com/showroom`;
+    const url = `https://warehouse-management-server-side-oftd.onrender.com/showroom`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setShowrooms(data));

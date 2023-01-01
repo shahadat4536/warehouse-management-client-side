@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 const ManageItems = () => {
   const [items, setItems] = useState([]);
   useEffect(() => {
-    const url = ` https://mysterious-fjord-04184.herokuapp.com/items`;
+    const url = ` https://warehouse-management-server-side-oftd.onrender.com/items`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setItems(data));
@@ -20,7 +20,7 @@ const ManageItems = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure you want to delete");
     if (proceed) {
-      const url = ` https://mysterious-fjord-04184.herokuapp.com/item/${id}`;
+      const url = ` https://warehouse-management-server-side-oftd.onrender.com/item/${id}`;
       fetch(url, {
         method: "DELETE",
       })
